@@ -1,12 +1,11 @@
 Prerequisits
 ============
 
-Install Python: [download](https://www.python.org/downloads/)
+Install Python: [download](https://www.python.org/downloads/) 2.7.14
 Install a text editor
 Install Postman
 
-TODO: decide 3.6.5 vs 2.7.14
-
+OPTIONAL - isolate python dependencies for this project
 Setup virtualenv
     * Intro to venvs: https://docs.python.org/3/tutorial/venv.html
     * Tut: http://docs.python-guide.org/en/latest/dev/virtualenvs/
@@ -14,6 +13,3 @@ Setup virtualenv
 Create project dir
 
 Create and activate venv
-
-
-

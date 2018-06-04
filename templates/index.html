@@ -6,22 +6,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="static/styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
 </head>
 
 <body>
-    <h1>Hello</h1>
+    <h1>Data Visualization</h1>
+    <div id="viz"></div>
 </body>
 
 <script>
+window.onload = main
 
 function main() {
-    d3.json('http://localhost:5000/api/test', (d) => {
+    d3.json('http://localhost:5000/api/test', d => {
         console.log(d)
     })
 }
 
-window.onload = main
 
 </script>
 
