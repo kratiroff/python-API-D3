@@ -18,5 +18,6 @@ Try this in your browser and in postman https://restcountries.eu/rest/v2/all
 
 $ pip install requests
 
-1. declar a function that fetches
+1. declare a function that fetches countries
 2. print the result
+3. now our python code can use this data!
