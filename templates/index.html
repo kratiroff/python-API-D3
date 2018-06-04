@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Python API D3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script>
+</head>
+
+<body>
+    <h1>Hello</h1>
+</body>
+
+<script>
+
+function main() {
+    d3.json('http://localhost:5000/api/test', (d) => {
+        console.log(d)
+    })
+}
+
+window.onload = main
+
+</script>
+
+</html>

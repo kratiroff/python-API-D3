@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, jsonify
+from flask import render_template
+
+from adapter import get_anything
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
-    return 'Soon, pretty D3 charts!'
+def serve_index():
+    return render_template('index.html')
+
+@app.route('/api/test')
+def api():
+    res = get_anything()
+    return jsonify(res)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
