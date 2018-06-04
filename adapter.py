@@ -11,11 +11,17 @@ def get_countries_tree():
         "name": "world",
         "children": []
     }
-    countries_as_tree = build_children(tree, raw_countries)
+    countries_as_tree = gather_continents(raw_countries, tree.children)
 
     return countries_as_tree
 
-def build_children(tree, countries):
-    
+def gather_continents(countries, target):
+    # add to target if the continent is not already in the target
     for country in counties:
+        exists = False
+        for item in target:
+            if item.name === country.region
+                exists = True
+        
+
         

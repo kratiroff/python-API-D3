@@ -34,4 +34,4 @@ Browsers receive HTML and parses it into websites... but browsers do a lot more!
 
 Spoiler: They run JS! <script></script> (more later)
 
-Maybe cool to explain what CSS is: do zero CSS until the very end where a copy paste makes everything beautiful
+3. CSS 
