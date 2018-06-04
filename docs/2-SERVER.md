@@ -20,3 +20,16 @@ $ pip install flask
 1. create the simple server.py
 2. place the html file in templates and render it
 
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def serve_index():
+    title = 'Hello'
+    return render_template('index.html', title=title)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```

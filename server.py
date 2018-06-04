@@ -7,7 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def serve_index():
-    return render_template('index.html')
+    title = 'Data Viz'
+    return render_template('index.html', title=title)
 
 @app.route('/api/countries')
 def api():
