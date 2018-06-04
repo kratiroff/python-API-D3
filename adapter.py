@@ -6,5 +6,16 @@ def get_countries():
 
 def get_countries_tree():
     raw_countries = get_countries()
-    # TODO
-    return raw_countries
+
+    tree = {
+        "name": "world",
+        "children": []
+    }
+    countries_as_tree = build_children(tree, raw_countries)
+
+    return countries_as_tree
+
+def build_children(tree, countries):
+    
+    for country in counties:
+        
