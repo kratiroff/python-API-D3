@@ -19611,48 +19611,34 @@ function rec(input, key, target) {
         if (!exists && name.length) {
             target.push({ name })
         }
-
-
-
     })
 }
 
 rec(raw, 'region', tree.children)
 
-tree.children.forEach(region => {
-    // console.log(region)
-    const unfiltered = raw.filter(r => r.region === region.name)
-        .map(r => r.subregion)
-    
-    let uniq = []
-    unfiltered.forEach(u => {
-        console.log(u)
-        if (uniq.indexOf(u) === -1) {
-            uniq.push(u)
-        }
-    })
-    uniq = uniq.map(r => ({ name: r }))
 
-    region.children = uniq
-})
-
-tree.children.forEach(region => {
-    region.children.forEach(sub => {
-        // console.log(region)
-        const unfiltered = raw.filter(r => r.subregion === sub.name)
-            .map(r => r.name)
-
+function recurse(input, key1, key2) {
+    input.forEach(item => {
+        const multiListed = raw.filter(i => i[key1] === item.name)
+            .map(i => i[key2])
+        
         let uniq = []
-        unfiltered.forEach(u => {
-            if (uniq.indexOf(u) === -1) {
-                uniq.push(u)
+        multiListed.forEach(multi => {
+            if (uniq.indexOf(multi) === -1) {
+                uniq.push(multi)
             }
         })
-        uniq = uniq.map(r => ({ name: r }))
+        uniq = uniq.map(u => ({ name: u }))
 
-        sub.children = uniq
+        if (uniq.length) {
+            item.children = uniq
+            recurse(item.children, 'subregion', 'name')
+        }
+
     })
-})
+}
+
+recurse(tree.children, 'region', 'subregion')
 
 console.log(JSON.stringify(tree, null, 2))
 
