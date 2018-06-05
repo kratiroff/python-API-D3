@@ -13,7 +13,7 @@ def serve_index():
 @app.route('/api/countries')
 def api():
     res = get_countries_tree()
-    return jsonify({ 'countries': res })
+    return jsonify({ 'data': res })
 
 if __name__ == '__main__':
     app.run(debug=True)

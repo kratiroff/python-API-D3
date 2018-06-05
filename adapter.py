@@ -9,7 +9,7 @@ def get_countries_tree():
 
     continents = gather_continents(raw_countries, [])
     regions = gather_regions(raw_countries, continents)
-    full_tree = gather_countries(raw_countries, continents, regions)
+    full_tree = gather_countries(raw_countries, regions)
 
     return full_tree
 
@@ -40,11 +40,12 @@ def gather_regions(countries, continents):
         uniq_list = list(set(subregion_list))
         # 4. add children array
         with_empty_children = map(lambda x: { "name": x, "children": [] } , uniq_list)
-        # 5. append to the list
-        regions.append({ "name": continent["name"], "children": with_empty_children })
+        # 5. append to the list if name not empty
+        if continent["name"]:
+            regions.append({ "name": continent["name"], "children": with_empty_children })
     return regions
 
-def gather_countries(countries, continents, regions):
+def gather_countries(countries, regions):
     tree = {
         "name": "world",
         "children": []
@@ -56,6 +57,10 @@ def gather_countries(countries, continents, regions):
             countries_list = list(map(lambda x: x["name"], detailed_list))
             uniq_list = list(set(countries_list))
             child["children"] = uniq_list
+            if not child["name"]:
+                # Polar doesn't have a subregion name
+                child["name"] = "Polar"
+
         tree["children"].append(region)
 
     return tree
