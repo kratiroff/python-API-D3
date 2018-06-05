@@ -56,7 +56,8 @@ def gather_countries(countries, regions):
             detailed_list = filter(lambda x: x["subregion"] == child["name"], countries)
             countries_list = list(map(lambda x: x["name"], detailed_list))
             uniq_list = list(set(countries_list))
-            child["children"] = uniq_list
+            with_name = map(lambda x: { "name": x }, uniq_list)
+            child["children"] = with_name
             if not child["name"]:
                 # Polar doesn't have a subregion name
                 child["name"] = "Polar"
