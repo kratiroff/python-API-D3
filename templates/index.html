@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="static/styles.css">
     <script src="//d3js.org/d3.v3.min.js"></script>
     <style>
+        html {
+            margin: 0;
+            font-family: "Helvetica Neue";
+        }
+
+        body {
+            margin: 0;
+            text-align: center;
+        }
+
         .node {
             cursor: pointer;
         }
@@ -43,10 +53,9 @@ var root, margin, width, height, i, duration, tree, diagonal, svg;
 
 function main() {
     d3.json('http://localhost:5000/api/countries', data => {
-        console.log(data)
         root = data.data;
         init();
-    })
+    });
 }
 
 // create SVG

@@ -1,5 +1,4 @@
-from flask import Flask, jsonify
-from flask import render_template
+from flask import Flask, jsonify, render_template
 
 from adapter import get_countries_tree
 
