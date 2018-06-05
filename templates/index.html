@@ -18,9 +18,19 @@
 window.onload = main
 
 function main() {
-    d3.json('http://localhost:5000/api/countries', d => {
-        console.log(d)
+    d3.json('http://localhost:5000/api/countries', data => {
+        console.log(data)
+        // init(data)
     })
+}
+
+function init(data) {
+    // create SVG
+    render(data)
+} 
+
+function render(data) {
+
 }
 
 </script>
