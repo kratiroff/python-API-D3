@@ -20,6 +20,8 @@ Because it's so beautiful
 
 ## Quickstart
 $ pip install -r requirements.txt 
+
 $ python server.py
+
 
 The app runs at http://localhost:5000/
